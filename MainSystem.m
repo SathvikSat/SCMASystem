@@ -9,26 +9,6 @@ addpath(genpath('Blocks'));
 % Initialising System Parameters
 txParams = txConfig();
 
-%% Power Allocation
-% We calculate the optimal values for power allocation coefficients using
-% the method of Lagrange Multipliers. This approach is known as the water
-% filling algorithm.
-
-% The total power available for allocation
-txParams.sysPower = 17.5; 
-
-% The noise variance is assumed to be 1 but it is later scaled to the
-% meet the SNR criteria.
-
-%% Calculating the optimal power levels for each user
-
-%% Method 1 - Channel Inversion
-for iter_user = 1: txParams.numUsers
-    txParams.powerLevels(iter_user) = 1 / txParams.CSI(iter_user) +  1.4 ^ (txParams.numUsers - iter_user + 1);
-end
-
-% txParams.powerLevels = [3.25 1.25];
-
 %% Generating Data
 
 % Generating random data

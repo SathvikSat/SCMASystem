@@ -26,11 +26,10 @@ function modDataStream = Transmitter(data, txParams)
     %% Codebook Mapping
     
     modDataMat = zeros(txParams.wordLen * size(encodedData, 1), txParams.numUsers);
-    modDataStream = zeros(txParams.wordLen * size(encodedData, 1), 1);
     
     for iter_user = 1:txParams.numUsers
         tmpVar = txParams.codeBook(:, encodedData(:, iter_user) + 1, iter_user);
-        modDataMat(:, iter_user) = tmpVar(:);
+        modDataMat(:, iter_user) = ;
         modDataStream = modDataStream + modDataMat(:, iter_user);
     end
     
